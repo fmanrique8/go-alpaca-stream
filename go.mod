@@ -1,4 +1,4 @@
-module your_module_name
+module go-alpaca-stream
 
 go 1.16
 
