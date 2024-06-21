@@ -9,7 +9,12 @@ import (
 )
 
 func ConnectAndSubscribe() {
-	url := "wss://stream.data.alpaca.markets/v2/iex"
+	url := os.Getenv("STREAM_URL")
+	if url == "" {
+		fmt.Println("STREAM_URL not set in environment variables")
+		return
+	}
+
 	conn, _, err := websocket.DefaultDialer.Dial(url, nil)
 	if err != nil {
 		fmt.Println("Error connecting to WebSocket:", err)
