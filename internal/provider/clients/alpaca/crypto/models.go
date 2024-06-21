@@ -1,17 +1,17 @@
-package websocket
+package crypto
 
 import (
 	"encoding/json"
 	"time"
 )
 
+// Bar represents a market data bar for crypto.
 type Bar struct {
 	Symbol    string    `json:"S"`
 	Open      float64   `json:"o"`
-	Close     float64   `json:"c"`
 	High      float64   `json:"h"`
 	Low       float64   `json:"l"`
-	Volume    int       `json:"v"`
+	Close     float64   `json:"c"`
 	Timestamp time.Time `json:"t"`
 }
 
@@ -35,9 +35,6 @@ func (b *Bar) UnmarshalJSON(data []byte) error {
 	}
 	if val, ok := raw["l"].(float64); ok {
 		b.Low = val
-	}
-	if val, ok := raw["v"].(float64); ok {
-		b.Volume = int(val)
 	}
 	if val, ok := raw["t"].(string); ok {
 		timestamp, err := time.Parse(time.RFC3339, val)
