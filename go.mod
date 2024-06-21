@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	github.com/gorilla/websocket v1.5.3
-	github.com/joho/godotenv v1.3.0
+	github.com/joho/godotenv v1.5.1
 )
