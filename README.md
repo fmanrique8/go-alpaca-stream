@@ -13,6 +13,7 @@ Go Alpaca Stream is a Go application designed to connect to the Alpaca cryptocur
 ## Quick Start
 
 1. **Set up environment variables:**
+
    Create a `.env` file in the project directory with the following content:
    ```
    ALPACA_API_KEY=your_api_key
@@ -20,16 +21,20 @@ Go Alpaca Stream is a Go application designed to connect to the Alpaca cryptocur
    ```
 
 2. **Install dependencies:**
+
+   Run the following command:
    ```sh
    go mod tidy
    ```
 
 3. **Run the application:**
+
+   Execute the following command:
    ```sh
    go run cmd/main.go
    ```
 
-This will connect to the Alpaca crypto market data stream and print the received market data bars to the console.
+   This will connect to the Alpaca crypto market data stream and print the received market data bars to the console.
 
 ## Contributing
 
