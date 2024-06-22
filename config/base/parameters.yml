@@ -1,0 +1,8 @@
+
+
+alpaca_crypto_provider:
+  symbols:
+    - BTC/USD
+    - ETH/USD
+    - LTC/USD
+    - XRP/USD

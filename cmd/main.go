@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-alpaca-stream/internal/config"
+	"go-alpaca-stream/internal"
 	"go-alpaca-stream/internal/provider"
 	"go-alpaca-stream/internal/provider/clients/alpaca/crypto"
 	"log"
@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	config.LoadEnv()
+	internal.LoadEnv()
 
 	var wg sync.WaitGroup
 	wg.Add(1)
