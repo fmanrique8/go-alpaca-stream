@@ -16,10 +16,10 @@ Go Alpaca Stream is a Go application designed to connect to the Alpaca cryptocur
 
    Create a `.env` file in the project directory with the following content:
    ```
-   ALPACA_API_KEY=your_api_key
-   ALPACA_API_SECRET=your_api_secret
+   API_KEY=your_api_key
+   API_SECRET=your_api_secret
    STREAM_URL=wss://stream.data.alpaca.markets/v2/iex
-   CRYPTO_STREAM_URL=wss://stream.data.alpaca.markets/v1beta3/crypto/us
+   CRYPTO_STREAM_URL=wss://stream.data.alpaca.markets/v1beta1/crypto
    ```
 
 2. **Install dependencies:**
