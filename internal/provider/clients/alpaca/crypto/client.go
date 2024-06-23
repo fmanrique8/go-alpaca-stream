@@ -1,14 +1,13 @@
 package crypto
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/gorilla/websocket"
 	"go-alpaca-stream/internal/provider"
 	"os"
 )
 
-// Client represents an Alpaca crypto clients.
+// Client represents an Alpaca crypto client.
 type Client struct {
 	Conn *websocket.Conn
 }
@@ -31,6 +30,7 @@ func (c *Client) Connect() error {
 
 // Subscribe subscribes to the given channels.
 func (c *Client) Subscribe(channels []string) error {
+	// Authenticate with a message
 	authMsg := map[string]string{
 		"action": "auth",
 		"key":    os.Getenv("API_KEY"),
@@ -41,6 +41,7 @@ func (c *Client) Subscribe(channels []string) error {
 		return fmt.Errorf("error sending auth message: %v", err)
 	}
 
+	// Subscribe to the channels
 	subMsg := map[string]interface{}{
 		"action": "subscribe",
 		"bars":   channels,
@@ -60,13 +61,9 @@ func (c *Client) HandleMessages() error {
 		if err != nil {
 			return fmt.Errorf("error reading message: %v", err)
 		}
-		var bars []Bar
-		if err := json.Unmarshal(message, &bars); err != nil {
-			return fmt.Errorf("error unmarshalling message: %v", err)
-		}
-		for _, bar := range bars {
-			PrintBar(bar)
-		}
+
+		// Print the raw message
+		fmt.Printf("Received raw message: %s\n", message)
 	}
 }
 
